@@ -4,7 +4,6 @@ table! {
     zone (id) {
         id -> Integer,
         short_name -> Varchar,
-        long_name -> Text,
         safe_x -> Float,
         safe_y -> Float,
         safe_z -> Float,

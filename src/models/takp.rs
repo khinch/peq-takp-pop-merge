@@ -6,7 +6,6 @@ use diesel::{ prelude::*, MysqlConnection, Queryable };
 pub struct Zone {
     pub id: i32,
     pub short_name: String,
-    pub long_name: String,
     pub safe_x: f32,
     pub safe_y: f32,
     pub safe_z: f32,

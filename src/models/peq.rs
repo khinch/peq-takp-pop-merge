@@ -6,7 +6,6 @@ use diesel::{ prelude::*, Insertable, MysqlConnection, Queryable };
 pub struct Zone {
     pub id: i32,
     pub short_name: String,
-    pub long_name: String,
     pub safe_x: f32,
     pub safe_y: f32,
     pub safe_z: f32,
@@ -71,8 +70,8 @@ impl Zone {
 
     /// Generates a SQL SELECT query string for retrieving all zones
     pub fn generate_select_query() -> String {
-        use crate::schema::peq::zone::dsl::*;
-        let query = zone.select((id, short_name, long_name));
+        use crate::schema::peq::zone::dsl::*; // Should not need to do this according to docs
+        let query = zone.select((id, short_name));
         diesel::debug_query::<diesel::mysql::Mysql, _>(&query).to_string()
     }
 
